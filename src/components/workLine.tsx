@@ -3,6 +3,7 @@ import { LineType } from "../types";
 import axios from "axios";
 import { CreateLine } from "./createLine";
 import { Line } from "./line";
+import { useStore } from "../context";
 
 interface Props {
   parentId?: number | null; 
@@ -18,6 +19,15 @@ export const WorkLine = ({ parentPosition, parentId, userId, oldData, isEditing 
   const [isEdit, setIsEdit] = useState(isEditing);
   const [isNewLine, setIsNewLine] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // вложенность максимальная
+  const { depth, setDepth } = useStore();
+  useEffect(() => {
+    if (level > depth) {
+      setDepth(level);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const elementRef = useRef<HTMLDivElement | null>(null);
   const [positionElement, setPositionElement] = useState<number | null>(null);
@@ -164,7 +174,7 @@ export const WorkLine = ({ parentPosition, parentId, userId, oldData, isEditing 
       <div ref={elementRef}>
         <div className={`works__block ${isEdit ? 'active' : ''}`} onDoubleClick={handleEdit}>
           <div className="works__item">
-            <div className={`works__controller`} style={{ marginLeft: `${level * 20}px` }}>
+          <div className="works__controller" style={{ "--ml": `${level}` } as Record<string, string>}>
               <button className="works__button" onClick={createNewLine}>
                 {parentPosition && positionElement &&
                   <Line parentPosition={parentPosition} positionElement={positionElement} />

@@ -3,10 +3,13 @@ import { useLayoutEffect, useState } from "react";
 import { WorkLine } from "./workLine";
 import { LineType } from "../types";
 import { CreateLine } from "./createLine";
+import { useStore } from "../context";
 
 export const Works = () => {
   const userId = 141636
   const [workList, setWorkList] = useState<LineType[]>([])
+
+  const { depth } = useStore();
 
   // обновление данных
   const getList = async () => {
@@ -25,7 +28,7 @@ export const Works = () => {
   }, []);
   
   return (
-    <section className="works">
+    <section className="works" style={{ "--depth": `${depth}` } as Record<string, string>}>
       <div className="works__header works__block">
         <p className="works__item">Уровень</p>
         <p className="works__item">Наименование работ</p>
@@ -35,7 +38,7 @@ export const Works = () => {
         <p className="works__item">Сметная прибыль</p>
       </div>
 
-      <div className="works__list">
+      <div className={`works__list`}>
         {workList.length > 0 ? workList.map((_item) => (
           <div key={_item.id}>
             <WorkLine userId={userId} isEditing={false} oldData={_item} getList={getList} />

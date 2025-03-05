@@ -5,12 +5,13 @@ $grayBright: #A1A1AA
 $grayDark: #414144
 $inputText: #71717A
 
+
 .works
   height: 100%
   flex-grow: 1
   background: $backDark
   padding: 10px
-  overflow-y: auto
+  overflow: auto
 
 .works__block
   display: flex
@@ -18,11 +19,7 @@ $inputText: #71717A
   border-bottom: 1px solid $grayDark
   height: 60px
   align-items: center
-
-  &.works__header
-    color: $grayBright
-    height: 30px
-    align-items: flex-start
+  width: max-content
 
   .works__item
     width: 200px
@@ -30,9 +27,10 @@ $inputText: #71717A
     border: none
     background: none
     color: $white
+    flex-shrink: 0
 
     &:nth-of-type(1)
-      width: 110px
+      width: calc(var(--depth) * 20px + 110px)
 
     &:nth-of-type(2)
       width: 757px
@@ -52,6 +50,11 @@ $inputText: #71717A
         border: 1px solid $grayDark
         color: $inputText
 
+  &.works__header
+    color: $grayBright
+    height: 30px
+    align-items: flex-start
+
 .works__controller
   display: flex
   align-items: center
@@ -59,7 +62,7 @@ $inputText: #71717A
   width: max-content
   position: relative
   z-index: 10
-
+  margin-left: calc(var(--ml) * 20px)
 
   .works__button
     padding: 6px
