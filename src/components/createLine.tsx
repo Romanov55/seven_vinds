@@ -36,7 +36,6 @@ export const CreateLine = ({ parentPosition, parentId, userId, level = 0, setIsN
     e?.preventDefault();
   
     if (isSubmitting) return;
-  
     setIsSubmitting(true);
   
     try {
