@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+a {
+  text-decoration: inherit;
+  color: #A1A1AA;
+  transition: .3s;
+}
+
+a:hover {
+  color: #FFFFFF;
+}
+
+a.active {
+  color: #FFFFFF;
+  border-bottom: 2px solid #FFFFFF;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+}

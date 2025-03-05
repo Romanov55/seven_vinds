@@ -1,0 +1,71 @@
+header
+  background: $backBright
+
+.header__top
+  display: flex
+  align-items: center
+  padding: 0 20px
+  height: 44px
+  gap: 20px
+  border-bottom: 1px solid $grayDark
+
+  .header__top__button
+    width: 24px
+    height: 24px
+
+    .button__img
+      path
+        transition: .3s
+
+    &:hover
+      .button__img
+        path
+          fill: $white
+          
+  .header__top__link
+    height: 100%
+    align-content: center
+
+.header__bottom
+  display: flex
+  height: 44px
+  border-bottom: 1px solid $grayDark
+
+  .left__switch
+    height: 100%
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 0 10px 0 20px
+    width: 234px
+    color: $grayBright
+    border-right: 1px solid $grayDark
+    cursor: pointer
+
+    &:hover
+      color: $white
+
+    .left__switch__text
+      align-content: center
+
+      .name
+        font-size: 14px
+        line-height: 16.41px
+
+      .abbreviation
+        font-size: 10px
+        line-height: 11.72px
+
+    .arrow
+      width: 24px
+      height: 24px
+
+.sections
+  display: flex
+
+  .sections__item
+    color: $white
+    padding: 0 10px
+    border-right: 1px solid $grayDark
+    font-size: 18px
+    line-height: 21.09px

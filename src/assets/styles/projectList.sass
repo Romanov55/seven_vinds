@@ -1,0 +1,27 @@
+.project__menu
+  display: flex
+  flex-direction: column
+  background: $backBright
+  width: 234px
+  height: 100%
+  border-right: 1px solid $grayDark
+  overflow-y: auto
+  border-right: 1px solid $grayDark
+  flex-shrink: 0
+
+  .project__item
+    display: flex
+    gap: 14px
+    align-items: center
+    padding: 5px 20px
+    color: $white
+    font-size: 14px
+    line-height: 16.41px
+    cursor: pointer
+    transition: .3s
+
+    &:hover
+      background: $grayBright
+
+    &.active
+      background: $grayBright

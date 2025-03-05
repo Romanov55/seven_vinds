@@ -1,0 +1,104 @@
+$backBright: #27272A
+$backDark: #202124
+$white: #FFFFFF
+$grayBright: #A1A1AA
+$grayDark: #414144
+$inputText: #71717A
+
+.works
+  height: 100%
+  flex-grow: 1
+  background: $backDark
+  padding: 10px
+  overflow-y: auto
+
+.works__block
+  display: flex
+  color: $white
+  border-bottom: 1px solid $grayDark
+  height: 60px
+  align-items: center
+
+  &.works__header
+    color: $grayBright
+    height: 30px
+    align-items: flex-start
+
+  .works__item
+    width: 200px
+    padding: 0 12px
+    border: none
+    background: none
+    color: $white
+
+    &:nth-of-type(1)
+      width: 110px
+
+    &:nth-of-type(2)
+      width: 757px
+
+    &:nth-of-type(3)
+      width: 200px
+
+  &.active
+    .works__item
+      padding: 10px
+
+      input
+        padding: 10px
+        border-radius: 6px
+        width: 100%
+        background: $backDark
+        border: 1px solid $grayDark
+        color: $inputText
+
+.works__controller
+  display: flex
+  align-items: center
+  border-radius: 6px
+  width: max-content
+  position: relative
+  z-index: 10
+
+
+  .works__button
+    padding: 6px
+    display: flex
+    align-items: center
+    transition: .3s
+
+    &:nth-child(2)
+      opacity: 0
+
+    .works__img
+      width: 16px
+      height: 16px
+
+      path
+        transition: .3s
+
+    &:hover
+      .works__img
+        path
+          fill: $white
+      
+  &:hover
+    background: $grayDark
+
+    .works__button
+      &:nth-child(2)
+        opacity: 1
+
+  &.child
+    margin-left: 20px
+
+.lines__img
+  position: absolute
+  bottom: 12px
+  left: -6px
+  z-index: -5
+  pointer-events: none
+
+.newLine
+  .lines__img
+    left: -4px
