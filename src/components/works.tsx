@@ -14,9 +14,7 @@ export const Works = () => {
   // обновление данных
   const getList = async () => {
     try {
-      const response = await axios.get(
-        `http://185.244.172.108:8081/v1/outlay-rows/entity/${userId}/row/list`
-      );
+      const response = await axios.get("/api/workList");
       setWorkList(response.data);
     } catch (error) {
       console.error("Ошибка при загрузке данных:", error);
