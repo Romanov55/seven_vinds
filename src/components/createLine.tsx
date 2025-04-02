@@ -34,12 +34,13 @@ export const CreateLine = ({ parentPosition, parentId, userId, level = 0, setIsN
 
   const createForm = async (e?: React.FormEvent) => {
     e?.preventDefault();
+    const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
   
     if (isSubmitting) return;
     setIsSubmitting(true);
   
     try {
-      await axios.post(`http://185.244.172.108:8081/v1/outlay-rows/entity/${userId}/row/create`, {
+      await axios.post(`${API_BASE_URL}/v1/outlay-rows/entity/${userId}/row/create`, {
         equipmentCosts: newData.equipmentCosts,
         estimatedProfit: newData.estimatedProfit,
         machineOperatorSalary: newData.machineOperatorSalary,

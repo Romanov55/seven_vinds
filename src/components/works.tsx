@@ -6,6 +6,8 @@ import { CreateLine } from "./createLine";
 import { useStore } from "../context";
 
 export const Works = () => {
+  
+
   const userId = 141636
   const [workList, setWorkList] = useState<LineType[]>([])
 
@@ -13,8 +15,12 @@ export const Works = () => {
 
   // обновление данных
   const getList = async () => {
+    const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
     try {
-      const response = await axios.get("/api/workList");
+      const response = await axios.get(
+        `${API_BASE_URL}/v1/outlay-rows/entity/${userId}/row/list`
+      );
       setWorkList(response.data);
     } catch (error) {
       console.error("Ошибка при загрузке данных:", error);

@@ -104,13 +104,14 @@ export const WorkLine = ({ parentPosition, parentId, userId, oldData, isEditing 
   //обновление линии и данных
   const updateForm = async (e?: React.FormEvent) => {
     e?.preventDefault();
+    const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
   
     if (isSubmitting) return;
   
     setIsSubmitting(true);
   
     try {
-      await axios.post(`http://185.244.172.108:8081/v1/outlay-rows/entity/${userId}/row/${`${oldData.id}/update`}`, {
+      await axios.post(`${API_BASE_URL}/v1/outlay-rows/entity/${userId}/row/${`${oldData.id}/update`}`, {
         equipmentCosts: newData.equipmentCosts,
         estimatedProfit: newData.estimatedProfit,
         machineOperatorSalary: newData.machineOperatorSalary,
@@ -149,8 +150,9 @@ export const WorkLine = ({ parentPosition, parentId, userId, oldData, isEditing 
 
   // удалить линию
   const deleteLine = async () => {
+    const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
     try {
-      const response = await fetch(`http://185.244.172.108:8081/v1/outlay-rows/entity/${userId}/row/${`${newData.id && newData.id}/delete`}`, {
+      const response = await fetch(`${API_BASE_URL}/v1/outlay-rows/entity/${userId}/row/${`${newData.id && newData.id}/delete`}`, {
         method: "DELETE",
       });
   
