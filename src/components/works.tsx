@@ -15,9 +15,11 @@ export const Works = () => {
 
   // обновление данных
   const getList = async () => {
+    const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
     try {
       const response = await axios.get(
-        `/api/v1/outlay-rows/entity/${userId}/row/list`
+        `${API_BASE_URL}/v1/outlay-rows/entity/${userId}/row/list`
       );
       setWorkList(response.data);
     } catch (error) {
